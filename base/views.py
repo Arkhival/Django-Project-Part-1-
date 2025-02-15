@@ -55,6 +55,10 @@ def home(request):
     context = {'rooms': rooms, 'topics' : topics, 'room_count':room_count }
     return render(request, 'base/home.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
+
 
 def room(request, pk):
     room = Room.objects.get(id=pk)
